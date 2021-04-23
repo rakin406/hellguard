@@ -9,6 +9,7 @@ import cv2
 CASC_PATH = sys.argv[1]
 FACE_CASCADE = cv2.CascadeClassifier(CASC_PATH)
 
+# Get webcam
 video_capture = cv2.VideoCapture(0)
 
 while True:
@@ -17,6 +18,7 @@ while True:
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
+    # Detect faces
     faces = FACE_CASCADE.detectMultiScale(
             gray,
             scaleFactor=1.1,
@@ -25,6 +27,8 @@ while True:
             flags=cv2.CASCADE_SCALE_IMAGE
             )
 
+    if len(faces) > 0:
+        print("Face detected.")
+
 # When everything is done, release the capture
 video_capture.release()
-cv2.destroyAllWindows()
