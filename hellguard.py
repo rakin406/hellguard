@@ -3,8 +3,15 @@
 Home surveillance
 """
 
+import os
 import sys
+import datetime
 import cv2
+
+# Create directory to store pictures
+PIC_DIR = "surveillance-pictures"
+if not os.path.exists(PIC_DIR):
+    os.makedirs(PIC_DIR)
 
 CASC_PATH = sys.argv[1]
 FACE_CASCADE = cv2.CascadeClassifier(CASC_PATH)
@@ -27,8 +34,11 @@ while True:
             flags=cv2.CASCADE_SCALE_IMAGE
             )
 
+    # Save image if face is detected
     if len(faces) > 0:
         print("Face detected.")
+        file_name = PIC_DIR + "/" + str(datetime.datetime.now()) + ".png"
+        cv2.imwrite(file_name, frame)
 
 # When everything is done, release the capture
 video_capture.release()
