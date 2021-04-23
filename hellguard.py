@@ -5,6 +5,7 @@ Home surveillance
 
 import os
 import sys
+import time
 import datetime
 import cv2
 
@@ -38,6 +39,7 @@ while True:
     if len(faces) > 0:
         file_name = PIC_DIR + "/" + str(datetime.datetime.now()) + ".png"
         cv2.imwrite(file_name, frame)
+        time.sleep(1)
 
 # When everything is done, release the capture
 video_capture.release()
