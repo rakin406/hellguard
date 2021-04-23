@@ -36,7 +36,6 @@ while True:
 
     # Save image if face is detected
     if len(faces) > 0:
-        print("Face detected.")
         file_name = PIC_DIR + "/" + str(datetime.datetime.now()) + ".png"
         cv2.imwrite(file_name, frame)
 
