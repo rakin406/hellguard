@@ -28,12 +28,12 @@ while True:
 
     # Detect faces
     faces = FACE_CASCADE.detectMultiScale(
-            gray,
-            scaleFactor=1.1,
-            minNeighbors=5,
-            minSize=(30, 30),
-            flags=cv2.CASCADE_SCALE_IMAGE
-            )
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE,
+    )
 
     # Save image if face is detected
     if len(faces) > 0:
