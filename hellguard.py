@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Home surveillance
+Home surveillance.
+Usage: ./hellguard.py data/haarcascade_frontalface_default.xml
 """
 
 import os
